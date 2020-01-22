@@ -1,0 +1,14 @@
+<h3>Name: <%= @character.character_name %></h3>
+<h4>Health: <%= @character.character_health %></h4>
+
+
+<hr>
+
+<p><%= link_to "Edit", edit_character_path(@character) %></p>
+<p><%= link_to "Delete", character_path(@character),
+  :data => {:confirm => "You sure?",
+  :method => "delete"} %></p>
+
+  <p><%= link_to "Return to characters", characters_path %></p>
+
+<hr>

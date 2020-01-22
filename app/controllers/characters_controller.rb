@@ -5,9 +5,20 @@ class CharactersController < ApplicationController
   #   render :sorry   # or e.g. redirect_to :action => :index
   # end
 
+
+
+
   def index
-    @characters = Character.all
-    render :index
+    # @user = current_user[:id]
+    # @characters = Character.all
+    if user_signed_in?
+      user_id = current_user[:id]
+      @a_users_characters = Character.a_users_characters(current_user[:id])
+      # binding.pry
+      render :index
+    else
+      render :index
+    end
   end
 
   def new
@@ -17,6 +28,9 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
+
+    # binding.pry
+
     if @character.save
       flash[:notice] = "Character successfully created!"
       redirect_to characters_path
@@ -56,8 +70,8 @@ class CharactersController < ApplicationController
   end
 
   private
-    def character_params
-      params.require(:character).permit(:title, :character, :user_id)
-    end
+  def character_params
+    params.require(:character).permit(:character_name, :user_id, :character_health)
+  end
 
 end
