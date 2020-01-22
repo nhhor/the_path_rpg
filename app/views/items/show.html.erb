@@ -1,0 +1,15 @@
+<h3>Item Name: <%= @item.item_name %></h3>
+<h4>Item Type: <%= @item.item_type %></h4>
+<h4>Item Stat: <%= @item.item_stat %></h4>
+
+
+<hr>
+
+<p><%= link_to "Edit", edit_item_path(@item) %></p>
+<p><%= link_to "Delete", item_path(@item),
+  :data => {:confirm => "You sure?",
+  :method => "delete"} %></p>
+
+  <p><%= link_to "Return to items", items_path %></p>
+
+<hr>

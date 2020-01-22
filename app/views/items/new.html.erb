@@ -1,0 +1,25 @@
+<h1>New item</h1>
+
+<% if @item.errors.any? %>
+
+<h3>Please fix these errors:</h3>
+<ul>
+  <% @item.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @item do |f| %>
+
+
+<%= f.label :item_name %>
+<%= f.text_field :item_name %>
+
+<%= f.label :item_type %>
+<%= f.text_field :item_type %>
+
+<%= f.label :item_stat %>
+<%= f.number_field :item_stat %>
+<%= submit_tag("item_new")  %>
+<% end %>
