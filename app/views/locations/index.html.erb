@@ -13,8 +13,12 @@
 <% else %>
 <p>There are no locations yet.</p>
 <% end %>
+<% if current_user[:admin] %>
 
 <p><%= link_to "Add location", new_location_path %></p>
+<% else %>
+
+<% end %>
 
 <% else %>
 <p>Welcome, please sign in!</p>

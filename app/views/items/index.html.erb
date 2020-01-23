@@ -13,8 +13,12 @@
 <% else %>
 <p>There are no items yet.</p>
 <% end %>
+<% if current_user[:admin] %>
 
 <p><%= link_to "Add item", new_item_path %></p>
+<% else %>
+
+<% end %>
 
 <% else %>
 <p>Welcome, please sign in!</p>

@@ -5,11 +5,19 @@
 
 <hr>
 
+<% if current_user[:admin] %>
+
+
+
+
 <p><%= link_to "Edit", edit_item_path(@item) %></p>
 <p><%= link_to "Delete", item_path(@item),
   :data => {:confirm => "You sure?",
   :method => "delete"} %></p>
-
+  <hr>
   <p><%= link_to "Return to items", items_path %></p>
 
-<hr>
+  <% else %>
+  <hr>
+  <p><%= link_to "Return to items", items_path %></p>
+  <% end %>

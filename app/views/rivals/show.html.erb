@@ -2,16 +2,21 @@
 <h4>Rival Health: <%= @rival.rival_health %></h4>
 
 <% if @rival.rival_avatar.attached? %>
-  <%= image_tag @rival.rival_avatar %>
+<%= image_tag @rival.rival_avatar %>
 <% end %>
 
 <hr>
+<% if current_user[:admin] %>
 
 <p><%= link_to "Edit", edit_rival_path(@rival) %></p>
 <p><%= link_to "Delete", rival_path(@rival),
   :data => {:confirm => "You sure?",
   :method => "delete"} %></p>
-
+  <hr>
   <p><%= link_to "Return to rivals", rivals_path %></p>
 
-<hr>
+  <% else %>
+  <hr>
+  <p><%= link_to "Return to rivals", rivals_path %></p>
+
+  <% end %>

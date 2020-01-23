@@ -2,11 +2,27 @@
 <% if user_signed_in? %>
 
 
+<% if current_user[:admin] %>
+
+<h1>Admin:</h1>
+
+<% if @characters.any? %>
+<ul>
+  <% @characters.each do |character| %>
+  <li><%= link_to character.character_name, character_path(character) %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no characters yet.</p>
+<% end %>
+
+<% else %>
+
 <h1>Character</h1>
 
-<% if @a_users_characters.any? %>
+<% if @characters.any? %>
 <ul>
-  <% @a_users_characters.each do |character| %>
+  <% @characters.each do |character| %>
   <li><%= link_to character.character_name, character_path(character) %></li>
   <% end %>
 </ul>
@@ -15,6 +31,16 @@
 <% end %>
 
 <p><%= link_to "Add character", new_character_path %></p>
+
+<% end %>
+
+
+
+
+
+
+
+
 
 <% else %>
 <p>Welcome, please sign in!</p>

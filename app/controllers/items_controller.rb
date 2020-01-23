@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   #   flash[:alert] = 'The record you tried to access no longer exists.'
   #   render :sorry   # or e.g. redirect_to :action => :index
   # end
+  before_action :authorize, only: []
+  before_action :authorize_admin, only: [:new, :create, :edit, :destroy]
+
 
   def index
     # @user = current_user[:id]

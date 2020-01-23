@@ -9,12 +9,13 @@ class CharactersController < ApplicationController
 
 
   def index
-    # @user = current_user[:id]
-    # @characters = Character.all
     if user_signed_in?
-      user_id = current_user[:id]
-      @a_users_characters = Character.a_users_characters(current_user[:id])
-      # binding.pry
+      if current_user[:admin]
+        @characters = Character.all
+      else
+        user_id = current_user[:id]
+        @characters = Character.a_users_characters(current_user[:id])
+      end
       render :index
     else
       render :index
@@ -28,9 +29,6 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
-
-    # binding.pry
-
     if @character.save
       flash[:notice] = "Character successfully created!"
       redirect_to characters_path
