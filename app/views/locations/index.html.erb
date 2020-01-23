@@ -1,0 +1,21 @@
+
+<% if user_signed_in? %>
+
+
+<h1>Location</h1>
+
+<% if @locations.any? %>
+<ul>
+  <% @locations.each do |location| %>
+  <li><%= link_to location.location_name, location_path(location) %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no locations yet.</p>
+<% end %>
+
+<p><%= link_to "Add location", new_location_path %></p>
+
+<% else %>
+<p>Welcome, please sign in!</p>
+<% end %>

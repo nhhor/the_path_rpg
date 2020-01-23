@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   resources :characters
   resources :items
+  resources :locations
+  resources :rivals
 
 end

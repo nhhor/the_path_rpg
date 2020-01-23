@@ -1,0 +1,14 @@
+<h3>Name: <%= @location.location_name %></h3>
+<h4>Location: <%= @location.location_description %></h4>
+
+
+<hr>
+
+<p><%= link_to "Edit", edit_location_path(@location) %></p>
+<p><%= link_to "Delete", location_path(@location),
+  :data => {:confirm => "You sure?",
+  :method => "delete"} %></p>
+
+  <p><%= link_to "Return to locations", locations_path %></p>
+
+<hr>

@@ -33,15 +33,10 @@ ActiveRecord::Schema.define(version: 2020_01_22_184406) do
   create_table "encounters", force: :cascade do |t|
     t.bigint "character_id"
     t.bigint "location_id"
-    t.bigint "foe_id"
+    t.bigint "rival_id"
     t.index ["character_id"], name: "index_encounters_on_character_id"
-    t.index ["foe_id"], name: "index_encounters_on_foe_id"
     t.index ["location_id"], name: "index_encounters_on_location_id"
-  end
-
-  create_table "foes", force: :cascade do |t|
-    t.string "foe_name"
-    t.integer "foe_health"
+    t.index ["rival_id"], name: "index_encounters_on_rival_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -57,6 +52,11 @@ ActiveRecord::Schema.define(version: 2020_01_22_184406) do
     t.string "location_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rivals", force: :cascade do |t|
+    t.string "rival_name"
+    t.integer "rival_health"
   end
 
   create_table "users", force: :cascade do |t|

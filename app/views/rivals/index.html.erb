@@ -1,0 +1,21 @@
+
+<% if user_signed_in? %>
+
+
+<h1>Rival</h1>
+
+<% if @rivals.any? %>
+<ul>
+  <% @rivals.each do |rival| %>
+  <li><%= link_to rival.rival_name, rival_path(rival) %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no rivals yet.</p>
+<% end %>
+
+<p><%= link_to "Add rival", 'new_rival_path' %></p>
+
+<% else %>
+<p>Welcome, please sign in!</p>
+<% end %>
