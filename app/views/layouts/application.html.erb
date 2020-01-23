@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Path Rpg</title>
+  <title>The Path RPG</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-  <h1>The Path rpg</h1>
+  <div class="container">
 
-  <% if user_signed_in? %>
+    <h1>The Path RPG</h1>
+
+    <% if user_signed_in? %>
 
     <%= link_to "Home", '/' %> |
     Logged in as <%= current_user.email %> | <%= link_to "Sign out", 'users/sign_out' %> <BR>
-       <%= link_to "Items", items_path %> | <%= link_to "Characters", characters_path %> | <%= link_to "Locations", locations_path %> | <%= link_to "Rivals", rivals_path %>
+      <%= link_to "Items", items_path %> | <%= link_to "Characters", characters_path %> | <%= link_to "Locations", locations_path %> | <%= link_to "Rivals", rivals_path %>
 
 
-  <% else %>
-    <%= link_to "Home", '/' %> | <%= link_to "Sign up", '/users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in' %>
-  <% end %>
+      <% else %>
+      <%= link_to "Home", '/' %> | <%= link_to "Sign up", '/users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in' %>
+      <% end %>
 
-  <hr>
+      <hr>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+      <%= yield %>
+    </div>
 
-</body>
-</html>
+  </body>
+  </html>

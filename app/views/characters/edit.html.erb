@@ -11,10 +11,17 @@
 <% end %>
 
 <%= form_for @character do |f| %>
-<%= f.hidden_field :user_id, value: current_user.id %>
+
+<div class="form-group">
+
+<%= f.hidden_field :user_id, value: current_user.id%>
 <%= f.hidden_field :character_health, value: 50 %>
 <%= f.label :character_name %>
-<%= f.text_field :character_name %>
-<%= f.file_field :character_avatar %>
-<%= submit_tag("character_new")  %>
+<%= f.text_field :character_name, class: "form-control"  %>
+</div>
+<div class="form-group">
+
+  <%= f.file_field :character_avatar, class: "form-control"  %>
+</div>
+<%= submit_tag("Update Character")  %>
 <% end %>

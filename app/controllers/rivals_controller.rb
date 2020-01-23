@@ -49,6 +49,8 @@ class RivalsController < ApplicationController
 
   def update
     @rival= Rival.find(params[:id])
+    @rival.rival_avatar.attach(params[:rival][:rival_avatar])
+
     if @rival.update(rival_params)
       flash[:notice] = "Rival successfully updated!"
       redirect_to rivals_path

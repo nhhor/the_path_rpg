@@ -1,6 +1,9 @@
 <h3>Rival Name: <%= @rival.rival_name %></h3>
 <h4>Rival Health: <%= @rival.rival_health %></h4>
 
+<% if @rival.rival_avatar.attached? %>
+  <%= image_tag @rival.rival_avatar %>
+<% end %>
 
 <hr>
 

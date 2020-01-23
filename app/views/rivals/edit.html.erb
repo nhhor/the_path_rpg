@@ -11,12 +11,18 @@
 <% end %>
 
 <%= form_for @rival do |f| %>
+<div class="form-group">
 
 <%= f.label :rival_name %>
 <%= f.text_field :rival_name %>
+</div>
+<div class="form-group">
 
 <%= f.label :rival_health %>
 <%= f.number_field :rival_health %>
+</div>
 
-<%= submit_tag("rival_edit")  %>
+<%= f.file_field :rival_avatar, class: "form-control"  %>
+
+<%= submit_tag("Edit Rival")  %>
 <% end %>
