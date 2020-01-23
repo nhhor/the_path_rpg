@@ -52,6 +52,7 @@ class CharactersController < ApplicationController
 
   def update
     @character= Character.find(params[:id])
+    @character.character_avatar.attach(params[:character][:character_avatar])
     if @character.update(character_params)
       flash[:notice] = "Character successfully updated!"
       redirect_to characters_path

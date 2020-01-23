@@ -1,6 +1,9 @@
 <h3>Name: <%= @character.character_name %></h3>
 <h4>Health: <%= @character.character_health %></h4>
 
+<% if @character.character_avatar.attached? %>
+  <%= image_tag @character.character_avatar %>
+<% end %>
 
 <hr>
 
