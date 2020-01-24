@@ -50,8 +50,9 @@ class CharactersController < ApplicationController
 
   def update
     @character= Character.find(params[:id])
-    @character.character_avatar.attach(params[:character][:character_avatar])
     if @character.update(character_params)
+      binding.pry
+      @character.character_avatar.attach(params[:character][:character_avatar])
       flash[:notice] = "Character successfully updated!"
       redirect_to characters_path
     else
@@ -70,7 +71,7 @@ class CharactersController < ApplicationController
 
   private
   def character_params
-    params.require(:character).permit(:character_name, :user_id, :character_health)
+    params.require(:character).permit(:character_name, :user_id, :character_health, :id)
   end
 
 end

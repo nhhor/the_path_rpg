@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+[Shoulda Matchers cheat sheet](https://github.com/thoughtbot/shoulda-matchers)

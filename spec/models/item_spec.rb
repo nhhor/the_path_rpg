@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe User do
-  it { should have_many(:characters) }
+describe Item do
+  it { should have_and_belong_to_many(:characters) }
 end
 
 # RSpec.describe User, type: :model do

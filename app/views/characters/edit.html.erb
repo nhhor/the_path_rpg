@@ -13,11 +13,11 @@
 <%= form_for @character do |f| %>
 
 <div class="form-group">
-
-<%= f.hidden_field :user_id, value: current_user.id%>
-<%= f.hidden_field :character_health, value: 50 %>
-<%= f.label :character_name %>
-<%= f.text_field :character_name, class: "form-control"  %>
+  <%= f.hidden_field :id, value: @character.id%>
+  <%= f.hidden_field :user_id, value: current_user.id%>
+  <%= f.hidden_field :character_health, value: 50 %>
+  <%= f.label :character_name %>
+  <%= f.text_field :character_name, class: "form-control"  %>
 </div>
 <div class="form-group">
 

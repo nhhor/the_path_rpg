@@ -63,6 +63,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # NH~JW INCLUDED:
   include Accessible
 
-  skip_before_action :check_user, except: [:new, :create]
+  # skip_before_action :check_user, except: [:new, :create]
 
 end
